@@ -102,13 +102,13 @@ Then I needed to apply styles and layout grid but was facing this multiple conte
     // [...]
 
     // MQ mixins
-    @mixin when-sidebar-left-is-visible {
+    @mixin when-sidebar-left-is-available {
       @media (min-width: 40em) { @content; }
     }
-    @mixin when-sidebar-right-is-alone-and-visible {
+    @mixin when-sidebar-right-is-alone-and-aside {
       @media (min-width: 56em) { @content; }
     }
-    @mixin when-sidebar-right-is-visible {
+    @mixin when-sidebar-right-is-aside {
       @media (min-width: 64em) { @content; }
     }
     // [...]
@@ -121,27 +121,38 @@ Ok now, this looks like a lot of mixins which doesn't do a lot of things (except
 ## Interesting part
 
     @include with-sidebar-left {
-      @include when-sidebar-left-is-visible {
+      @include when-sidebar-left-is-available {
         @include layout-grid(...);
       }
     }
 
     @include with-sidebar-right {
-      @include when-sidebar-right-is-alone-and-visible {
+      @include when-sidebar-right-is-alone-and-aside {
         @include layout-grid(...);
       }
     }
 
     @include with-two-sidebars {
-      @include when-sidebar-left-is-visible {
+      @include when-sidebar-left-is-available {
         @include layout-grid(...);
       }
-      @include when-sidebar-right-is-visible {
+      @include when-sidebar-right-is-aside {
         @include layout-grid(...);
       }
     }
 
+Meme time !
+
 <a><img src="/attachments/mixin-all-the-things-medium.jpg" alt="Mixin all the Things meme" alt="Mixin all the Things meme" class="full" /></a>
 
+For the sake of this article I didn't include every mixins, this extract is enough to see how *natural* it is. Another benefit I would point out is **reusability**. Mixins are the most reusable Sass feature, even ```@extend``` can't beat that because it can not be used across multiple media-queries. Some would argue this method will cause a lot of bloat, it's not entirely false. Regarding ressource weight, gzip will handle this well. Regarding rendering performance, I don't think it would be such a concern, and I'm not sure to have better alternatives anyway.
+
 ## Conclusion
-TODO
+
+I hope those few examples helped you to see how mixins can help enhance **your** regular styling work. The purpose is to demonstrate how mixins is not only for framework makers but can also help you better manage your code. I'm not saying you should use the same exact methods I've shown. Those are only a few ways to use mixins as a way to make your code more natural, readable and learnable, even if you're not part of a team. A clearfix mixin is useful, but you can do more than that.
+
+## Be curious
+
+Back to highschool, few years after the calculator anecdote a new software came in town : Flash 2. The same story happened again : I didn't think I could script vector objects animation, I was wrong. Later on, I needed Flash to store user data on a server, PHP 3 was in the place, I thought I would need a smarter guy for this stuff, but again I was wrong. SQL is only for DBA! Wrong. Finally, Flash was not fast enough for I need, so I went to HTML and CSS. I thought JavaScript and the DOM was too complicated, wrong (well, it is sometimes...). jQuery was born and I didn't even imagine to write my own plugins, wrong. The same story happened again and again, but less and less as I won experience.
+
+Everytime I thought I couldn't handle a new technology, language, feature, I was wrong. Actually it turned out it always was the best move I could do. I brought me where I am today (a Lead Developer) and I'm definitely not smarter than you. So don't be studid, be curious. Don't just try mixins. Try all the things! And share.
