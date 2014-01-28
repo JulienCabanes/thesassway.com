@@ -2,7 +2,7 @@
 date: 27 January 2014
 categories: intermediate, articles
 author: Julien Cabanès
-summary: So your friend, co-worker, web-buddy or whomever told you about Sass, Compass ... or both. Great! Now what? In this beginner guide we take you through the first steps of getting started with Sass and Compass. We walk you through installation, creating a test project, compiling your first lines Sass to CSS and we even "mixin" a little Sass history.
+summary: There are two kinds of people in the Sass world : those who writes mixins, and those who uses it.
 ---
 
 # Mixin all the Things
